@@ -1,8 +1,11 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
+name := "HDLBits_Spinal"
+version := "0.1"
 
-ThisBuild / scalaVersion := "2.11.12"
+scalaVersion := "2.11.12"
+fork := true
 
-lazy val root = (project in file("."))
-  .settings(
-    name := "spinal_demo"
-  )
+libraryDependencies ++= Seq(
+  "com.github.spinalhdl" % "spinalhdl-core_2.11" % "1.7.0",
+  "com.github.spinalhdl" % "spinalhdl-lib_2.11" % "1.7.0",
+  compilerPlugin("com.github.spinalhdl" % "spinalhdl-idsl-plugin_2.11" % "1.7.0")
+)
