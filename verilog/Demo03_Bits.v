@@ -1,10 +1,10 @@
 // Generator : SpinalHDL v1.7.0    git head : eca519e78d4e6022e34911ec300a432ed9db8220
-// Component : Demo02_Bits
-// Git hash  : cda2b4527b541defe03b38e53cc3a5260a403089
+// Component : Demo03_Bits
+// Git hash  : 64e114c2e27f6de25f2c00c6893fb1889d6d2bb9
 
 `timescale 1ns/1ps
 
-module Demo02_Bits (
+module Demo03_Bits (
 );
 
   reg        [9:0]    a;

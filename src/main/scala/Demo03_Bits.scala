@@ -1,6 +1,6 @@
 import spinal.core._
 
-class Demo02_Bits extends Component {
+class Demo03_Bits extends Component {
   //    wire [7:0] a;
 
   //    val b = Reg(Bits(8 bits))
@@ -52,13 +52,13 @@ class Demo02_Bits extends Component {
   a.subdivideIn(2 slices)(1) := 10
 }
 
-object Demo02_Bits {
+object Demo03_Bits {
   def main(args: Array[String]): Unit = {
     //        SpinalVerilog(new Demo01)
     //        SpinalSystemVerilog(new Demo01)
     //        SpinalVhdl(new Demo01)
     //        SpinalConfig().generateVhdl(new Demo01)
-    SpinalConfig(targetDirectory = "./verilog").generateVerilog(new Demo02_Bits)
+    SpinalConfig(targetDirectory = "./verilog").generateVerilog(new Demo03_Bits)
   }
 }
 
