@@ -24,25 +24,25 @@ endmodule
 
 module fixTo (
   input      [31:0]   din,
-  output     [15:0]   dout
+  output     [15:0]   dout /* verilator public */ 
 );
 
-  wire       [25:0]   temp_temp_dout;
-  wire       [24:0]   temp_dout;
-  reg        [15:0]   temp_dout_1;
+  wire       [25:0]   _zz__zz_dout;
+  wire       [24:0]   _zz_dout;
+  reg        [15:0]   _zz_dout_1;
   wire                when_UInt_l119;
 
-  assign temp_temp_dout = ({1'b0,din[31 : 7]} + {1'b0,{24'h0,1'b1}});
-  assign temp_dout = (temp_temp_dout >>> 1);
-  assign when_UInt_l119 = (|temp_dout[24 : 16]);
+  assign _zz__zz_dout = ({1'b0,din[31 : 7]} + {1'b0,{24'h0,1'b1}});
+  assign _zz_dout = (_zz__zz_dout >>> 1);
+  assign when_UInt_l119 = (|_zz_dout[24 : 16]);
   always @(*) begin
     if(when_UInt_l119) begin
-      temp_dout_1 = 16'hffff;
+      _zz_dout_1 = 16'hffff;
     end else begin
-      temp_dout_1 = temp_dout[15 : 0];
+      _zz_dout_1 = _zz_dout[15 : 0];
     end
   end
 
-  assign dout = temp_dout_1;
+  assign dout = _zz_dout_1;
 
 endmodule

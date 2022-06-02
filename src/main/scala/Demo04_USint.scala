@@ -20,7 +20,7 @@ class Demo04_USint extends Component{
 //          val g = U"3'd2"
 //          val h = S"3'd2"
   /********************************************************************************************
-   * fixed-point representatioin
+   * fixed-point representation
 
    ********************************************************************************************/
 
@@ -35,13 +35,26 @@ class Demo04_USint extends Component{
       val c = a * b
       val d = c.fixTo( 23 downto 8) simPublic()
 
-//      val a = FixData(6.82,UQ(16,8))
-//      println(a.hex)
-//      println(a.raw)
+  // not synthesizable, convenient for verify the results
+      val e = FixData(6.82,UQ(16,8))
+      println(e.hex)
+      println(e.raw)
 }
 
+//object Demo04_USint extends App {
+//
+//  SpinalConfig(targetDirectory = "./verilog").generateVerilog(new Demo04_USint)
+//
+//}
+
 object Demo04_USint extends App {
+    //    SpinalVerilog(new DemoUSint)
 
-  SpinalConfig(targetDirectory = "./verilog").generateVerilog(new Demo04_USint)
+    SimConfig.withWave.compile(new Demo04_USint).doSimUntilVoid{
+        dut=>
+            sleep(10)
+            println(dut.d.toInt)
 
+    }
+    SpinalConfig(anonymSignalPrefix = "temp",targetDirectory = "./verilog").generateVerilog(new Demo04_USint)
 }
